@@ -1,0 +1,197 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+{#{% form_theme form 'FamilyHealthMainBundle:Form:field_errors.html.twig' %}#}
+{% block title %}
+    Member
+{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form, { 'attr' : { 'class':'form-horizontal form-label-left'} } ) }}
+    {#{% if error is defined %}#}
+        {#{{ error }}#}
+    {#{% endif %}#}
+
+
+
+    <div class="col-md-6 col-xs-12 col-lg-6">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Basic Info</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x-content">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.name) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.age) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.age) }}
+                        {{ form_errors(form.age) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.gender) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.gender) }}
+                        {{ form_errors(form.gender) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.bloodGroup) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.bloodGroup) }}
+                        {{ form_errors(form.bloodGroup) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.dob) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.dob) }}
+                        {{ form_errors(form.dob) }}
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div><!-- basic info -->
+
+
+
+    <div class="col-md-6 col-xs-12 col-lg-6">
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Contact Info</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x-content">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.email) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.mobile) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.mobile) }}
+                        {{ form_errors(form.mobile) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.phone) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.phone) }}
+                        {{ form_errors(form.phone) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.address) }}</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        {{ form_widget(form.address) }}
+                        {{ form_errors(form.address) }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>{#  contact info #}
+
+    <div class="col-md-12 col-xs-12 col-lg-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Membership Info</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x-content">
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.joinedDate) }}</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {{ form_widget(form.joinedDate) }}
+                            {{ form_errors(form.joinedDate) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.isPremiumMember) }}</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {{ form_widget(form.isPremiumMember) }}
+                            {{ form_errors(form.isPremiumMember) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.premiumExpiryDate) }}</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {{ form_widget(form.premiumExpiryDate) }}
+                            {{ form_errors(form.premiumExpiryDate) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.hasSurgery) }}</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {{ form_widget(form.hasSurgery) }}
+                            {{ form_errors(form.hasSurgery) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ form_label(form.file) }}</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {{ form_widget(form.file) }}
+                            {{ form_errors(form.file) }}
+                        </div>
+                    </div>
+
+                    {% if (member is defined) and (member.path != '') %}
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">&nbsp;</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <img src="{{ asset('uploads/members/'~member.path) }}" alt="{{ member.name }}" width="100"/>
+                            <cite>Choose another file to replace</cite>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>{# membership info #}
+
+    <div class="col-md-12 col-xs-12 col-lg-12">
+        <input class="btn btn-default" type="submit" value="ADD" />
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

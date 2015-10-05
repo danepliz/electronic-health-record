@@ -1,0 +1,27 @@
+family_health_institution:
+    resource: "@FamilyHealthInstitutionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+family_health_member:
+    resource: "@FamilyHealthMemberBundle/Resources/config/routing.yml"
+    prefix:   /member
+
+family_health_main:
+    resource: "@FamilyHealthMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+family_health_admin:
+    resource: "@FamilyHealthAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+family_health_user:
+    resource: "@FamilyHealthUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+family_health_frontend:
+    resource: "@FamilyHealthFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

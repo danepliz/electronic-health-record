@@ -1,0 +1,3 @@
+family_health_member_homepage:
+    path:     /dashboard
+    defaults: { _controller: FamilyHealthMemberBundle:Member:index }

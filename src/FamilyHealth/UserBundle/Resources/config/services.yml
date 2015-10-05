@@ -1,0 +1,8 @@
+services:
+#    family_health_user.example:
+#        class: FamilyHealth\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    family_health_user.login_handler:
+        class: FamilyHealth\UserBundle\Handler\LoginSuccessHandler
+        arguments: [ @router, @security.context ]

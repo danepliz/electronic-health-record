@@ -1,0 +1,156 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+{#{% form_theme form 'FamilyHealthMainBundle:Form:field_errors.html.twig' %}#}
+{% block title %}
+    Import Members
+{% endblock %}
+
+{% block content %}
+
+    <form class="validate" action="" method="post" enctype="multipart/form-data">
+    {% if error is defined %}
+        <div class="alert alert-danger">
+            {{ error|raw }}
+        </div>
+        <div class="clearfix"></div>
+    {% endif %}
+
+    <div class="col-md-12 col-xs-12 col-lg-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Import Xls</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x-content">
+                <div class="form-group col-md-8">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Upload File</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="file" name="xls"/>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">&nbsp;</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input class="btn btn-default" type="submit" value="IMPORT" />
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div><!-- basic info -->
+
+    <div class="col-md-12 col-xs-12 col-lg-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Instructions</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="btn btn-default" href="{{ asset('bundles/familyhealthmember/doc/fhn-sample.xls') }}">
+                            <i class="fa fa-file-excel-o"></i> Download Sample
+                        </a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+
+                <div class="col-md-12">
+                    <table class="table">
+                        <tr>
+                            <th>field</th>
+                            <th>Required</th>
+                            <th>options</th>
+                            <th>example</th>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>required</td>
+                            <td>&nbsp;</td>
+                            <td>Falano Manchhe</td>
+                        </tr>
+                        <tr>
+                            <td>birth date</td>
+                            <td>optional</td>
+                            <td>yyyy-mm-dd</td>
+                            <td>2015-01-12 or Leave blank</td>
+                        </tr>
+                        <tr>
+                            <td>age</td>
+                            <td>required</td>
+                            <td>numeric only</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>gender</td>
+                            <td>required</td>
+                            <td>male/female/others</td>
+                            <td>male</td>
+                        </tr>
+                        <tr>
+                            <td>blood group</td>
+                            <td>optional</td>
+                            <td>a+ / a- / b+ / b- / ab+ / ab- / o+ / o-</td>
+                            <td>ab+</td>
+                        </tr>
+                        <tr>
+                            <td>joined date</td>
+                            <td>optional</td>
+                            <td>yyyy-mm-dd</td>
+                            <td>2015-01-12 or Leave blank if current importing date to be set as joined date</td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>optional</td>
+                            <td>valid email format</td>
+                            <td>email@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>phone</td>
+                            <td>optional</td>
+                            <td>phone number</td>
+                            <td>01XXXXXXX</td>
+                        </tr>
+                        <tr>
+                            <td>mobile</td>
+                            <td>required</td>
+                            <td>mobile number</td>
+                            <td>98XXXXXXXX</td>
+                        </tr>
+                        <tr>
+                            <td>address</td>
+                            <td>optional</td>
+                            <td>address of member</td>
+                            <td>tole-2, state</td>
+                        </tr>
+                        <tr>
+                            <td>is premium</td>
+                            <td>optional</td>
+                            <td>yes/no</td>
+                            <td>may leave blank for option 'no'</td>
+                        </tr>
+                        <tr>
+                            <td>expiring date</td>
+                            <td>optional</td>
+                            <td>yyyy-mm-dd</td>
+                            <td>No need to mention if not premium member. If blank, 1 year on joining date will be set</td>
+                        </tr>
+                        <tr>
+                            <td>has Surgery</td>
+                            <td>optional</td>
+                            <td>yes/no</td>
+                            <td>may leave blank for option 'no'</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </form>
+
+{% endblock %}

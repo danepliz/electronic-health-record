@@ -1,0 +1,186 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+{% block title %}
+    Member
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2 class="heading">{{ member.name }}</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a href="{{ url('family_health_admin_member_edit', {'id':member.id}) }}" ><i class="fa fa-pencil-square"></i> Edit</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-3">
+                    <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="col-md-3">
+                        <label>Member ID</label>
+                        <p>{{ member.memberId }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Member Name</label>
+                        <p>{{ member.name }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Gender</label>
+                        <p>{{ member.gender }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Age</label>
+                        <p>{{ member.age }}</p>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-3">
+                        <label>Email</label>
+                        <p>{{ member.email }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Mobile</label>
+                        <p>{{ member.mobile }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Phone</label>
+                        <p>{{ member.phone }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Joined Date</label>
+                        <p>{{ member.joinedDate.format('F j, Y') }}</p>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-3">
+                        <label>Address</label>
+                        <p>{{ member.address }}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Premium Status</label>
+                        <p>
+                            {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
+                        </p>
+                    </div>
+                </div><!-- description -->
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h2 class="heading">Family Members</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a href="{{ url('family_health_admin_member_relation_add', {'member':member.id}) }}" ><i class="fa fa-plus-square"></i> Add Members</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                {% if member.relations|length %}
+                    <table class="table">
+                        <tr>
+                            <th>#</th>
+                            <th>Relation</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Action</th>
+                        </tr>
+
+                        {% for relation in member.relations %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ relation.relation }}</td>
+                                <td>{{ relation.name }}</td>
+                                <td>{{ relation.mobile }}</td>
+                                <td>
+                                    <a href="{{ url('family_health_admin_member_relation_edit', {'member':member.id,'id':relation.id}) }}">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                <div class="alert alert-warning">
+                    No family members added.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+
+
+        {#<a href="#" data-toggle="modal" data-target="#member_relations_add_form">Add Members</a>#}
+    </div>
+
+    <div class="modal fade" id="member_relations_add_form" role="dialog" arial-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Add Family Member</h2>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="" method="post">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $('#member_relations_add_form').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+
+                var modal = $(this);
+
+                console.log(modal);
+                console.log(modal.find('.modal-body').html());
+
+                $.ajax({
+                    type: 'get',
+                    url: '{{ url('family_health_admin_member_relation_template') }}',
+                    success: function(res){
+                        console.log(res);
+//                        var data = $.parseJSON(res);
+//                        console.log(data);
+                        if( res.status && res.status == 'success' ){
+                            modal.find('.modal-body').html(res.template);
+                        }
+//                        console.log(modal.find('.modal-body').html());
+                    }
+                });
+
+            });
+
+
+        });
+
+    </script>
+{% endblock scripts %}
