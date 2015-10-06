@@ -1,0 +1,9 @@
+services:
+#    family_health_admin.example:
+#        class: FamilyHealth\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    family_health.twig_extension.premium_status:
+        class: FamilyHealth\AdminBundle\Twig\Extension\PremiumStatusExtension
+        tags:
+            - { name: twig.extension }

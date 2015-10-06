@@ -1,0 +1,3 @@
+family_health_medical_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FamilyHealthMedicalBundle:Default:index }

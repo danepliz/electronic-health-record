@@ -1,0 +1,232 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+{#{% form_theme form 'FamilyHealthMainBundle:Form:field_errors.html.twig' %}#}
+{% block title %}
+    Member
+{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form, { 'attr': { 'class':'form-horizontal' } }) }}
+
+    <div class="col-md-12">
+        <div class="box box-default">
+            <div class="box-header">
+                <h2 class="box-title">Member Info</h2>
+            </div>
+            <div class="box-body">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        {{ form_widget(form.firstName) }}
+                        {{ form_errors(form.firstName) }}
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.middleName) }}
+                        {{ form_errors(form.middleName) }}
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.lastName) }}
+                        {{ form_errors(form.lastName) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.dob) }}</label>
+                        {{ form_widget(form.dob) }}
+                        {{ form_errors(form.dob) }}
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.gender) }}</label>
+                        {{ form_widget(form.gender) }}
+                        {{ form_errors(form.gender) }}
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.bloodGroup) }}</label>
+                        {{ form_widget(form.bloodGroup) }}
+                        {{ form_errors(form.bloodGroup) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="">Permanent Address</label>
+                        {{ form_widget(form.permanentAddressDistrict) }}
+                        {{ form_errors(form.permanentAddressDistrict) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.permanentAddressVDC) }}
+                        {{ form_errors(form.permanentAddressVDC) }}
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.permanentAddressWard) }}
+                        {{ form_errors(form.permanentAddressWard) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.permanentAddressTole) }}
+                        {{ form_errors(form.permanentAddressTole) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.permanentAddressHouseNumber) }}
+                        {{ form_errors(form.permanentAddressHouseNumber) }}
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.permanentAddressPhone) }}
+                        {{ form_errors(form.permanentAddressPhone) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="">Temporary Address</label>
+                        {{ form_widget(form.temporaryAddressDistrict) }}
+                        {{ form_errors(form.temporaryAddressDistrict) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.temporaryAddressVDC) }}
+                        {{ form_errors(form.temporaryAddressVDC) }}
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.temporaryAddressWard) }}
+                        {{ form_errors(form.temporaryAddressWard) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.temporaryAddressTole) }}
+                        {{ form_errors(form.temporaryAddressTole) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.temporaryAddressHouseNumber) }}
+                        {{ form_errors(form.temporaryAddressHouseNumber) }}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.temporaryAddressPhone) }}
+                        {{ form_errors(form.temporaryAddressPhone) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Contact</label>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                        {{ form_widget(form.mobile) }}
+                        {{ form_errors(form.mobile) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.hasSurgery) }}</label>
+                        {{ form_widget(form.hasSurgery) }}
+                        {{ form_errors(form.hasSurgery) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.joinedDate) }}</label>
+                        {{ form_widget(form.joinedDate) }}
+                        {{ form_errors(form.joinedDate) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.premiumExpiryDate) }}</label>
+                        {{ form_widget(form.premiumExpiryDate) }}
+                        {{ form_errors(form.premiumExpiryDate) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.file) }}</label>
+                        {{ form_widget(form.file) }}
+                        {{ form_errors(form.file) }}
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        {% if ( member.path is defined ) and ( member.path != '' ) %}
+                            <img src="{{ asset('uploads/members/' ~ member.path) }}" alt="" width="100"/>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    {{ form_widget(form.add) }}
+                </div>
+
+
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

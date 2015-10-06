@@ -1,0 +1,660 @@
+/* THEME DEVELOPED FOR : FAMILY HEALTH NEPAL
+   THEME DESIGNED BY : RAJESH KHADKA, SURAJ
+   DATE: 23 SEP, 2015
+   BY: YARSHA STUDIO
+*/
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../fonts/../fonts/opensans-regular-webfont.eot');
+  src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-regular-webfont.woff') format('woff'),
+  url('../fonts/opensans-regular-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url('../fonts/opensans-italic-webfont.eot');
+  src: url('../fonts/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-italic-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-italic-webfont.woff') format('woff'),
+  url('../fonts/opensans-italic-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-italic-webfont.svg#open_sansitalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('../fonts/opensans-light-webfont.eot');
+  src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-light-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-light-webfont.woff') format('woff'),
+  url('../fonts/opensans-light-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansbold';
+  src: url('../fonts/opensans-bold-webfont.eot');
+  src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-bold-webfont.woff') format('woff'),
+  url('../fonts/opensans-bold-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-bold-webfont.svg#open_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url('../fonts/opensans-extrabold-webfont.eot');
+  src: url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-extrabold-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-extrabold-webfont.woff') format('woff'),
+  url('../fonts/opensans-extrabold-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-extrabold-webfont.svg#open_sansextrabold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url('../fonts/opensans-bolditalic-webfont.eot');
+  src: url('../fonts/opensans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/opensans-bolditalic-webfont.woff2') format('woff2'),
+  url('../fonts/opensans-bolditalic-webfont.woff') format('woff'),
+  url('../fonts/opensans-bolditalic-webfont.ttf') format('truetype'),
+  url('../fonts/opensans-bolditalic-webfont.svg#open_sansbold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url('../fonts/OpenSans-Semibold-webfont.eot');
+  src: url('../fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-Semibold-webfont.woff2') format('woff2'),
+  url('../fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+  url('../fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+  url('../fonts/OpenSans-Semibold-webfont.svg#open_sanssemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*************************
+*******Typography******
+**************************/
+body {
+  padding-top: 100px;
+  background: #fff;
+  font-family: open_sansregular;
+  font-weight: 400;
+  color: #666;
+  line-height: 25px;
+  font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: open_sansbold;
+  color: #222;
+}
+a {
+  color: #45aed6;
+  -webkit-transition: color 400ms, background-color 400ms;
+  -moz-transition: color 400ms, background-color 400ms;
+  -o-transition: color 400ms, background-color 400ms;
+  transition: color 400ms, background-color 400ms;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #2a95be;
+}
+hr {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+}
+.gradiant {
+  background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -ms-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+}
+.gradiant-horizontal {
+  background-image: -moz-linear-gradient(4deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -webkit-linear-gradient(4deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -ms-linear-gradient(4deg, #2caab3 0%, #2c8cb3 100%);
+}
+
+.btn {
+  border-width: 0;
+  border-radius: 3px;
+}
+.btn.btn-primary {
+  background: #45aed6;
+  border-color: #2a95be;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background: #2a95be;
+}
+.column-title {
+  margin-top: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+  position: relative;
+}
+.column-title:after {
+  content: " ";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 40%;
+  border-bottom: 1px solid #45aed6;
+}
+ul.nostyle {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+ul.nostyle i {
+  color: #45aed6;
+}
+.scaleIn {
+  -webkit-animation-name: scaleIn;
+  animation-name: scaleIn;
+}
+@-webkit-keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/*************************
+*******Header******
+**************************/
+.navbar.navbar-default {
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.navbar.navbar-default .navbar-toggle {
+  margin-top: 32px;
+}
+.navbar.navbar-default .navbar-brand {
+  height: auto;
+  padding: 0px;
+}
+.navbar>.container-fluid .navbar-brand{margin-left:6em}
+.benifit{background: url("../images/pat.png") repeat; width: 100%; padding: 50px 0px; min-height: 200px; margin-top: 50px}
+.advantageFhn ul{padding-left: 0em}
+.advantageFhn{text-align: left}
+.advantageFhn li{display: list-item; list-style: none; margin-bottom: 25px}
+.advantageFhn li span:nth-child(1){width:8.5%; background: #00BBF2; border-radius: 100%; text-align: center; vertical-align: middle; color: #ffffff; padding: 0.8em 1.2em; float: left}
+.advantageFhn li span:nth-child(1) strong{font-family: open_sansbold;}
+.advantageFhn li span:nth-child(2){width: 90%; font-family: open_sansitalic; font-size: 14px; text-align: left; padding-left: 1em; float: left; vertical-align: middle}
+.advantageFhn h3{color: #3c3c3c; text-transform: uppercase; font-size: 18px; padding-bottom: 0.5em}
+.fhnGive li{font-size: 13px}
+.medicalHistory{width: 350px; min-height: 110px; background: -moz-linear-gradient(0deg, transparent 75px, rgba(40, 117, 178, 1) 76px); background: -o-linear-gradient(0deg, transparent 75px, #2875b2 76px);  background: -webkit-linear-gradient(0deg, transparent 75px, rgba(40, 117, 178, 1) 76px);  background: linear-gradient(120deg, transparent 75px, rgba(40, 117, 178, 1) 76px); position: relative; float: right; padding-left: 8em; padding-top: 1em}
+.medicalHistory a img{}
+.medicalHistory span{text-transform: uppercase; font-size: 14px; font-family: open_sansbold; color: #ffffff; }
+nav.responsive-nav:before, nav.responsive-nav:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+
+.navicon {
+  background: #62A7D5;
+  display: none;
+  padding: .35em;
+}
+.navicon:hover {
+  cursor: pointer;
+}
+
+nav.responsive-nav {
+  width: 11%;
+  background: #62A7D5;
+  float: right;
+  background: #00d7ea; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #00d7ea 0%, #00a7c9 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#00d7ea), color-stop(100%,#00a7c9)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #00d7ea 0%,#00a7c9 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #00d7ea 0%,#00a7c9 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #00d7ea 0%,#00a7c9 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #00d7ea 0%,#00a7c9 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00d7ea', endColorstr='#00a7c9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  color: white;
+  min-height: 110px;
+  text-transform: uppercase;
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform: skew(-30deg);
+  margin-right: -52px;
+}
+nav.responsive-nav ul{margin-bottom: 0px}
+nav.responsive-nav ul li {
+  display: list-item;
+  -moz-transform: skew(30deg);
+  -webkit-transform: skew(30deg);
+  -o-transform: skew(30deg);
+  transform: skew(30deg);
+  list-style: disc inside;
+}
+@-moz-document url-prefix() {
+  nav.responsive-nav ul li {
+    list-style: disc outside;
+  }
+}
+nav.responsive-nav ul li:nth-child(2){margin-left: 4px}
+nav.responsive-nav ul li:nth-child(3){margin-left: 10px}
+nav.responsive-nav ul li:nth-child(4){margin-left: 17px}
+nav.responsive-nav ul li a {
+  display: block;
+  color: #fff;
+  font-size: 11px;
+}
+
+.show {
+  height: auto;
+  display: block;
+}
+
+.container-fluid{padding-right: 0em}
+#main-slider {
+  overflow: hidden;
+}
+#main-slider .item {
+  height: 558px;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+#main-slider .slider-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+#main-slider .slider-inner h2 {
+  margin-top: 180px;
+  font-size: 50px;
+  font-family: open_sansbold_italic;
+  line-height: 1;
+  color: #fff;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#000000)";/*IE 8*/
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color=#000000); /*IE 5.5-7*/
+}
+#main-slider .slider-inner h2 > span {
+  color: #45aed6;
+}
+#main-slider .slider-inner .btn {
+  margin-top: 70px;
+}
+#main-slider .slider-inner .btn-danger{background: #D7000F; border: 1px solid #B0000D; text-transform: uppercase; font-family: open_sansbold; font-size: 16px}
+#main-slider .slider-inner .btn-danger span:nth-child(1){border-right: 1px solid #E20010; padding-right: 0.5em}
+#main-slider .slider-inner .btn-danger span:nth-child(2){border-left: 1px solid #B0000D; padding-left: 1em}
+#main-slider .owl-prev,
+#main-slider .owl-next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 30px;
+  display: inline-block;
+  margin-top: -35px;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 5;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+#main-slider .owl-prev:hover,
+#main-slider .owl-next:hover {
+  background-color: #45aed6;
+}
+#main-slider .owl-prev {
+  left: -35px;
+  text-indent: 14px;
+}
+#main-slider .owl-next {
+  right: -35px;
+  text-indent: -14px;
+}
+
+#cta {
+  padding: 70px 0px 0px 0px;
+  background-color: #fff;
+  text-align: center;
+}
+#cta h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+#cta2 {
+  background: #242a33 url(../images/shaded.png) no-repeat 50% 50%;
+  background-size: cover;
+  color: #fff;
+  padding: 50px 0px;
+}
+.tagLing p:nth-child(1){
+  font-size: 24px; -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#000000)";/*IE 8*/
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color=#000000); /*IE 5.5-7*/
+  letter-spacing: -1px;
+}
+.tagLing p:nth-child(2){
+  font-size: 48px; font-family: open_sansbold;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#000000)";/*IE 8*/
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color=#000000); /*IE 5.5-7*/
+  letter-spacing: -1px;
+  padding-top: 0.5em;
+}
+.helpLine{padding-left: 1em; background: url("../images/helpline.png") left center no-repeat; padding: 1em; width: 90%; float: right}
+.helpLine p{}
+.helpLine p:nth-child(1){text-transform: uppercase;padding-left: 5em}
+.helpLine p:nth-child(2){font-family: open_sansbold; font-size: 30px; padding-left: 3em}
+#services {
+  padding: 50px 0px;
+  background: url("../images/servicebg.jpg") no-repeat;
+  min-height: 672px;
+}
+.serviceIntro h2{
+  font-size: 30px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#000000)";/*IE 8*/
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color=#000000); /*IE 5.5-7*/
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+.serviceIntro p{
+  color: #ffffff;
+  font-family: open_sansitalic;
+  text-align: justify;
+  font-size: 13px;
+}
+.service-box{
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+.service-box p{position: absolute; width: 100%; background: rgba(0,0,0,0.9); color: #ffffff; text-transform: uppercase; bottom: 10%}
+.service-box p span{font-size: 14px; text-align: center; position: relative; display: block; padding: 0.3em}
+.modal-content{background: #E4E4E4; padding: 14px}
+button.close{position: absolute; top: 3%; right: 3%}
+.modal-content h2{text-transform: uppercase; font-size: 30px}
+.modal-content p{font-size: 13px; }
+
+#contact {
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+}
+#contact .container-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(69, 174, 214, 0.3);
+  z-index: 1;
+}
+#contact .contact-form {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin-top: 50px;
+}
+#contact .contact-form h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+#contact address ul{padding-left: 0em}
+#contact address li{font-size: 13px; text-transform: uppercase; list-style: none; padding-left: 3em; padding-top: 0.5em; padding-bottom: 0.5em}
+#contact address li:nth-child(1){background: url("../images/contact/location.png") left center no-repeat;}
+#contact address li:nth-child(2){background: url("../images/contact/mobile.png") left center no-repeat;}
+#contact address li:nth-child(3){background: url("../images/contact/message.png") left center no-repeat;}
+#contact address li p span{color: #00BBF2; padding-left: 1em}
+#contact address li p{margin-bottom: 0em}
+.captchaSee, .captchaPut{background: #F7F7F7; border-radius: 0.1em;border: 1px solid #e4e4e4; font-size: 12px;color: #777;box-shadow: none; font-family: open_sansitalic}
+.captchaSee, .captchaPut, .captchaSend{width: 23.1%;float: left;margin-right: 0.3em; min-height: 35px;}
+.captchaSee, .captchaPut{text-align: center; padding:0.5em}
+.captchaSee{font-family: open_sansextrabold;}
+.captchaPut{text-align: left}
+.captchaSend input[type="submit"]{background: #BC8127;width: 100%;text-align: center;text-transform: uppercase;color: #ffffff;padding: 0.2em;border-radius: 0em;border: 1px solid #854C05;font-family: open_sanslight;min-height: 35px; font-family: open_sansbold}
+#google-map{width: 100%; position: absolute; min-height: 450px}
+#contact input, #contact textarea{border-radius: 2px; border: 1px solid #e4e4e4}
+#contact input:focus, #contact textarea:focus{box-shadow: none}
+  /***********************
+  ********* Footer ******
+  ************************/
+#footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  background: #000;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+#footer a {
+  color: #F17A20;
+  text-transform: uppercase;
+}
+#footer a:hover {
+  color: #45aed6;
+}
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 -7.5px;
+}
+#footer ul > li {
+  display: inline-block;
+  margin: 0 7.5px;
+}
+@media only screen and (min-width: 768px) {
+  #footer .social-icons {
+    float: right;
+  }
+}
+.form-control {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  nav.responsive-nav {
+    transform: none;
+    width: auto;
+    float: none;
+    background: none;
+    margin-right: 0px;
+    position: relative;
+  }
+  nav.responsive-nav ul li{transform: none; list-style: none}
+  nav.responsive-nav ul{padding-left: 0px}
+  .navicon {
+    display: inline-block;
+    /*float: right;*/
+    color: #626060;
+    font-size: 2em;
+    position: absolute;
+    top: 37%;
+    background: transparent;
+    padding: .3em;
+  }
+  .navicon span{text-transform: none; font-size: 15px; vertical-align: middle; padding-left: 0.5em}
+  .show{width: 63%; position: absolute; top: 100%; left: 8%}
+  nav.responsive-nav ul li:nth-child(2), nav.responsive-nav ul li:nth-child(3), nav.responsive-nav ul li:nth-child(4){margin-left: 0px}
+  nav.responsive-nav ul {
+    display: none;
+  }
+
+  nav.responsive-nav li {
+    background: #4A4A4A;
+    width: 100%;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #5F5F5F;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 479px){
+  .navbar > .container-fluid .navbar-brand{width: 47%; margin-left: 0em}
+  .medicalHistory{width: 53%; padding-left: 5em; min-height: 57px; padding-top: 0em}
+  .medicalHistory span{font-size: 9px; line-height: 0px}
+  .medicalHistory span strong{display: none}
+  nav.responsive-nav{min-height: 10px}
+  /*slider*/
+  #main-slider .slider-inner h2{font-size: 35px}
+  #cta {padding: 24px 0px 0px;}
+  #cta h2{font-size: 22px}
+  #cta p{font-size: 13px}
+  .advantageFhn li span:nth-child(1){padding: 0em}
+  .advantageFhn li span:nth-child(2){text-align: justify}
+  .tagLing p:nth-child(2){font-size: 33px}
+  .helpLine{background: none; width: 100%; float: none}
+  .helpLine p:nth-child(1), .helpLine p:nth-child(2){padding-left: 0em}
+  #services{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4096ee+0,60abf8+44,7abcff+99 */
+    background: #4096ee; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4096ee 0%, #60abf8 44%, #7abcff 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(44%,#60abf8), color-stop(99%,#7abcff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=0 ); /* IE6-9 */
+  }
+  .captchaSee, .captchaPut, .captchaSend{width: 30%}
+}
+@media (min-width: 480px) and (max-width: 599px) {
+  .navbar > .container-fluid .navbar-brand{width: 41%; margin-left: 0em}
+  .medicalHistory{width: 53%; padding-left: 5em; min-height: 57px; padding-top: 0em}
+  .medicalHistory span{font-size: 16px; line-height: 0px; padding-left: 0.5em}
+  .medicalHistory span strong{display: none}
+  nav.responsive-nav{min-height: 10px}
+  .navicon{left: 2%; top: 50%}
+  /*slider*/
+  #main-slider .slider-inner h2{font-size: 35px}
+  #cta {padding: 24px 0px 0px;}
+  #cta h2{font-size: 22px}
+  #cta p{font-size: 13px}
+  .advantageFhn li span:nth-child(1){padding: 0.4em 0.5em}
+  .advantageFhn li span:nth-child(2){text-align: justify}
+  .tagLing p:nth-child(2){font-size: 33px}
+  .helpLine{background: none; width: 100%; float: none}
+  .helpLine p:nth-child(1), .helpLine p:nth-child(2){padding-left: 0em}
+  #services{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4096ee+0,60abf8+44,7abcff+99 */
+    background: #4096ee; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4096ee 0%, #60abf8 44%, #7abcff 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(44%,#60abf8), color-stop(99%,#7abcff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=0 ); /* IE6-9 */
+  }
+  .service-box img{width: 100%}
+  .captchaSee, .captchaPut, .captchaSend{width: 30%}
+  .contact-form{width: 62%}
+}
+@media (min-width: 600px) and (max-width: 767px) {
+  .navbar > .container-fluid .navbar-brand{width: 33%; margin-left: 0em}
+  .medicalHistory{width: 53%; padding-left: 7em; min-height: 57px; padding-top: 0em}
+  .medicalHistory span{font-size: 16px; line-height: 0px; padding-left: 0.5em}
+  .medicalHistory span strong{display: none}
+  nav.responsive-nav{min-height: 10px}
+  .navicon{left: 2%; top: 50%}
+  /*slider*/
+  /*#main-slider .slider-inner h2{font-size: 35px}*/
+  #cta {padding: 24px 0px 0px;}
+  #cta h2{font-size: 22px}
+  #cta p{font-size: 13px}
+  .advantageFhn li span:nth-child(1){padding: 0.4em 0em; width: 7.5%}
+  .advantageFhn li span:nth-child(2){text-align: justify}
+  .tagLing p:nth-child(2){font-size: 33px}
+  /*.helpLine{background: none; width: 100%; float: none}*/
+  /*.helpLine p:nth-child(1), .helpLine p:nth-child(2){padding-left: 0em}*/
+  #services{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4096ee+0,60abf8+44,7abcff+99 */
+    background: #4096ee; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4096ee 0%, #60abf8 44%, #7abcff 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(44%,#60abf8), color-stop(99%,#7abcff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=0 ); /* IE6-9 */
+  }
+  #services .col-md-9 .col-md-4{width: 50%; float: left}
+  .captchaSee, .captchaPut, .captchaSend{width: 30%}
+  .contact-form{width: 62%}
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar > .container-fluid .navbar-brand{margin-left: 0em}
+  .medicalHistory{width: 260px; padding-left: 5em}
+  nav.responsive-nav{width: 16%}
+  .advantageFhn li span:nth-child(1){padding: 0em}
+  .service-box img{width: 100%}
+  #services{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4096ee+0,60abf8+44,7abcff+99 */
+    background: #4096ee; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4096ee 0%, #60abf8 44%, #7abcff 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(44%,#60abf8), color-stop(99%,#7abcff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4096ee 0%,#60abf8 44%,#7abcff 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=0 ); /* IE6-9 */
+  }
+  .captchaSee, .captchaPut, .captchaSend{width: 30%}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar > .container-fluid .navbar-brand{margin-left: 0em}
+  .medicalHistory{width: 260px; padding-left: 5em}
+  nav.responsive-nav{width: 16%}
+  .advantageFhn li span:nth-child(1){padding: 0.4em 0.5em}
+  .service-box img{width: 100%}
+}
+
+
+

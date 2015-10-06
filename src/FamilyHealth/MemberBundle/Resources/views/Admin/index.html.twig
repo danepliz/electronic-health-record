@@ -1,0 +1,142 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="box box-default">
+            <div class="box-header">
+                <h3 class="box-title">Filter</h3>
+            </div>
+            <div class="box-body">
+                <form method="get" action="" role="form" name="member-filter-form" class="">
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" value="{{ app.request.get('name') }}"/>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" name="gender" id="gender">
+                            {% for i,v in {'':' -- ALL -- ', 'MALE':'MALE', 'FEMALE':'FEMALE', 'OTHERS':'OTHERS' } %}
+                                {% set genderSelected =  app.request.get('gender') == i ? 'selected="selected"' : '' %}
+                                <option value="{{ i }}" {{ genderSelected }}> {{ v }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label for="age_min">Min Age</label>
+                        <input class="form-control" type="text" name="age_min" value="{{ app.request.get('age_min') }}"/>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label for="age_max">Max Age</label>
+                        <input class="form-control" type="text" name="age_max"  value="{{ app.request.get('age_max') }}"/>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label for="status">Status</label>
+                        <select class="form-control" name="status" id="status">
+                            {% for i,v in {'':' -- ALL -- ','PREMIUM':'PREMIUM', 'NON-PREMIUM':'NON-PREMIUM'} %}
+                                {% set statusSelected = app.request.get('status') == i ? 'selected="selected"' : '' %}
+                                <option value="{{ i }}" {{ statusSelected }}> {{ v }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label></label>
+                        <input class="form-control btn btn-primary" type="submit" value="FILTER"/>
+                    </div>
+                    <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-6">
+                        <label></label>
+                        <a href="{{ url('family_health_admin_member_list') }}" class="btn btn-primary form-control">CANCEL</a>
+                        {#<input class="form-control btn btn-primary" type="submit" value="FILTER"/>#}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+
+        {#{% for member in members %}#}
+            {#<div class="col-md-6">#}
+                {#<div class="col-md-3">#}
+                    {#<img src="{{ asset('uploads/members/') ~ member.path }}" class="img-responsive" alt=""/>#}
+                {#</div>#}
+                {#<p>{{ member.memberId }}</p>#}
+                {#<p>{{ member.name }} [ {% set difference = date(member.dob).diff(date()) %}{{ difference.y }} ]</p>#}
+            {#</div>#}
+        {#{% endfor %}#}
+
+        <div class="clearfix"></div>
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+            <h3 class="box-title">List</h3>
+            <div class="box-tools pull-right">
+                <a href="{{ url('family_health_admin_member_add') }}" class="btn btn-default"><i class="fa fa-plus"></i> &nbsp; Add Member</a>
+                <a href="{{ url('family_health_admin_member_import_xls') }}" class="btn btn-default"><i class="fa fa-file-excel-o"></i> &nbsp; Import Excel</a>
+            </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    {% if members|length %}
+
+                        <table class="table">
+                            <tr>
+                                <th>#</th>
+                                <th>Member ID</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                {#<th>Address</th>#}
+                                <th>Status</th>
+                                <th><i class="fa fa-cog"></i></th>
+                            </tr>
+                            {% for member in members %}
+
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ member.memberId }}</td>
+                                    <td><img src="{{ asset('uploads/members/') ~ member.path }}" width="80" alt=""/></td>
+                                    <td>{{ member.name }}</td>
+                                    <td>{% set difference = date(member.dob).diff(date()) %}{{ difference.y }}</td>
+                                    <td>{{ member.mobile }}</td>
+                                    <td>{{ member.email }}</td>
+                                    {#<td>{{ member.address }}</td>#}
+                                    <td>
+                                        {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
+                                        {#{% if member.isPremiumMember %}#}
+                                        {#<span class="label label-success">Premium Member</span>#}
+                                        {#<cite>{{ member.premiumExpiryDate|date('F j, Y') }}</cite>#}
+                                        {#{% else %}#}
+                                        {#<span class="label label-warning">Non Premium Member</span>#}
+                                        {#{% endif %}#}
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('family_health_admin_member_detail',{'id':member.id}) }}" title="view"><i class="fa fa-external-link"></i></a>
+                                        <a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="edit"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="delete"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="renew"><i class="fa fa-wrench"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            No Members to list
+                        </div>
+                    {% endif %}
+                </div><!-- /.table-responsive -->
+            </div><!-- /.box-body -->
+            {#<div class="box-footer clearfix">#}
+                {#<a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>#}
+                {#<a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>#}
+            {#</div><!-- /.box-footer -->#}
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+.content-header{
+    background: #F7F7F7;
+    padding-bottom: 1em;
+}
+
+.content-wrapper{
+    background: #FDFDFD;
+}
+
+.box.box-default{
+    border-top: 1px solid #DADADA !important;
+}
+
+.box-header{
+    background: #EFEFEF !important;
+}
+
+.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
+    background-color: #FFD694 !important;
+    border-color: #F5C14A;
+    color: #C57D09 !important;
+}

@@ -1,0 +1,4 @@
+services:
+#    family_health_medical.example:
+#        class: FamilyHealth\MedicalBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,116 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+
+{% block content %}
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Total Members</span>
+                    <span class="info-box-number">{{ member_counts.total }}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Jiwan Vardan</span>
+                    <span class="info-box-number">{{ member_counts.premium }}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+
+        {#<!-- fix for small devices only -->#}
+        {#<div class="clearfix visible-sm-block"></div>#}
+
+        {#<div class="col-md-3 col-sm-6 col-xs-12">#}
+            {#<div class="info-box">#}
+                {#<span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>#}
+                {#<div class="info-box-content">#}
+                    {#<span class="info-box-text">Sales</span>#}
+                    {#<span class="info-box-number">760</span>#}
+                {#</div><!-- /.info-box-content -->#}
+            {#</div><!-- /.info-box -->#}
+        {#</div><!-- /.col -->#}
+        {#<div class="col-md-3 col-sm-6 col-xs-12">#}
+            {#<div class="info-box">#}
+                {#<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>#}
+                {#<div class="info-box-content">#}
+                    {#<span class="info-box-text">New Members</span>#}
+                    {#<span class="info-box-number">2,000</span>#}
+                {#</div><!-- /.info-box-content -->#}
+            {#</div><!-- /.info-box -->#}
+        {#</div><!-- /.col -->#}
+
+
+    {#<div class="col-md-4 col-sm-4 col-xs-12">#}
+        {#<div class="x_panel tile">#}
+            {#<div class="x_title">#}
+                {#<h2>Members Count</h2>#}
+                {#<div class="clearfix"></div>#}
+            {#</div>#}
+            {#<div class="x_content">#}
+                {#&#123;&#35;<h4>App Usage across versions</h4>&#35;&#125;#}
+                {#<div class="widget_summary">#}
+                    {#<div class="w_left w_25">#}
+                        {#<span>Total</span>#}
+                    {#</div>#}
+                    {#<div class="w_center w_55">#}
+                        {#<div class="progress">#}
+                            {#<div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">#}
+                                {#<span class="sr-only">100</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="w_right w_20">#}
+                        {#<span>{{ member_counts.total }}</span>#}
+                    {#</div>#}
+                    {#<div class="clearfix"></div>#}
+                {#</div>#}
+
+                {#<div class="widget_summary">#}
+                    {#<div class="w_left w_25">#}
+                        {#<span>Premium</span>#}
+                    {#</div>#}
+                    {#<div class="w_center w_55">#}
+                        {#<div class="progress">#}
+                            {#<div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ member_counts.premium_percent }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ member_counts.premium_percent }}%;">#}
+                                {#<span class="sr-only">{{ member_counts.premium_percent }}</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="w_right w_20">#}
+                        {#<span>{{ member_counts.premium }}</span>#}
+                    {#</div>#}
+                    {#<div class="clearfix"></div>#}
+                {#</div>#}
+
+                {#<div class="widget_summary">#}
+                    {#<div class="w_left w_25">#}
+                        {#<span>Others</span>#}
+                    {#</div>#}
+                    {#<div class="w_center w_55">#}
+                        {#<div class="progress">#}
+                            {#<div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ member_counts.non_premium_percent }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ member_counts.non_premium_percent }}%;">#}
+                                {#<span class="sr-only">{{ member_counts.non_premium_percent }}</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="w_right w_20">#}
+                        {#<span>{{ member_counts.non_premium }}</span>#}
+                    {#</div>#}
+                    {#<div class="clearfix"></div>#}
+                {#</div>#}
+
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    {#0%#}
+    {#Total User Graph#}
+    {#Pending Renewal Graph#}
+    {#Expiring Soon Listing of members#}
+
+{% endblock content %}

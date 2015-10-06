@@ -1,0 +1,55 @@
+family_health_admin_dashboard:
+    path:     /dashboard
+    defaults: { _controller: FamilyHealthAdminBundle:Dashboard:index }
+
+# =========================================================================================
+# Family Health MEMBER Admin Routes
+# =========================================================================================
+
+family_health_admin_member_list:
+    path:   /member
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:index }
+
+family_health_admin_member_add:
+    path:   /member/add
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:add }
+
+family_health_admin_member_edit:
+    path:   /member/{id}/update
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:add }
+
+family_health_admin_member_detail:
+    path:   /member/{id}/view
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:detail }
+
+family_health_admin_member_relation:
+    path:   /member/{member}/relation
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:relation }
+
+family_health_admin_member_relation_add:
+    path:   /member/{member}/relation/add
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:addRelation }
+
+family_health_admin_member_relation_edit:
+    path:   /member/{member}/relation/{id}/edit
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:addRelation }
+
+family_health_admin_member_relation_template:
+    path:   /member/relation/template
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:relationTemplate }
+
+family_health_admin_member_import_xls:
+    path:   /member/import/xls
+    defaults: { _controller: FamilyHealthMemberBundle:MemberAdmin:importXls }
+
+# =========================================================================================
+# Family Health INSTITUTION Admin Routes
+# =========================================================================================
+
+family_health_admin_institution_list:
+    path:   /institution
+    defaults: { _controller: FamilyHealthInstitutionBundle:InstitutionAdmin:index }
+
+family_health_admin_institution_add:
+    path:   /institution/add
+    defaults: { _controller: FamilyHealthInstitutionBundle:InstitutionAdmin:add }
