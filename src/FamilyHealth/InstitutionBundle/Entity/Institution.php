@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Institution
  *
- * @ORM\Table()
+ * @ORM\Table(name="fhn_institutions")
  * @ORM\Entity(repositoryClass="FamilyHealth\InstitutionBundle\Entity\InstitutionRepository")
  */
 class Institution
