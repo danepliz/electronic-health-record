@@ -168,7 +168,8 @@
             </p>
             <p>
                 <strong>2.</strong>
-                Make arrangement for you to see the best doctor of respective specialty and best hospital as to your requirement. (see list of Doctors & Hospitals)
+                Make arrangement for you to see the best doctor of respective specialty and best hospital as to your requirement.
+                <a href="#" data-toggle="modal" data-target="#doctorList" class="docLists" >(see list of Doctors & Hospitals)</a>
             </p>
             <p>
                 <strong>3.</strong>
@@ -182,28 +183,36 @@
                 <strong>5.</strong>
                 Visit to the top specialist of the country as per the needs twice a year.
             </p>
-            {#<p>#}
-            {#<strong>6.</strong>#}
-            {#Once a year ultrasound, ECG, Echo, X-ray, eye & psychological checkup.#}
-            {#</p>#}
-            {#<p>#}
-            {#<strong>7.</strong>#}
-            {#Once enrolled in the program, you get a membership card which provides 15% discount on all hospital services (except pharmacy).#}
-            {#</p>#}
-            {#<p>#}
-            {#<strong>8.</strong>#}
-            {#Once enrolled in the program, you get a membership card which provides 15% discount on all hospital services (except pharmacy).#}
-            {#</p>#}
-            {#<p>#}
-            {#<strong>9.</strong>#}
-            {#Every month phone calls from FHN will be made to the respective members to ensure that their mental and physical health is good. Special care will be taken to their hygiene, food, sanitation and general wellbeing.#}
-            {#</p>#}
 
-            {#10. Reporting to you through emails on their health condition and when necessary make a conference call between you, your family and the treating doctor.#}
+            <a href="#" data-toggle="modal" data-target="#serviceList" class="knowMoreBtn">Know More</a>
+            <div class="modal fade" id="serviceList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content docContent">
+                        <div class="modal-body">
+                            <button type="button" class="close closeBtn closeBtnDoctor" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3>Our Services</h3>
+                            <ol class="serviceListPopup">
+                                <li> A 24 hours hotline telephone service to answer your routine or distress call.</li>
+                                <li>
+                                    Make arrangement for you to see the best doctor of respective specialty and best hospital as to your requirement.
+                                    <a href="#" data-toggle="modal" data-target="#doctorList" class="docLists" >(see list of Doctors & Hospitals)</a>
+                                </li>
+                                <li>At the time of sickness we will periodically maintain communication with the treating doctor, hospital and see that best possible, ethical and financially correct service is being provided. It will pass that information to you via email or telephone.</li>
+                                <li>General health check-up including general lab test facilities tailored to your family members need twice a year.</li>
+                                <li>Visit to the top specialist of the country as per the needs twice a year.</li>
+                                <li>Once a year ultrasound, ECG, Echo, X-ray, eye & psychological checkup.</li>
+                                <li>Once enrolled in the program, you get a membership card which provides 15% discount on all hospital services (except pharmacy).</li>
+                                <li>Once enrolled in the program, you get a membership card which provides 15% discount on all hospital services (except pharmacy).</li>
+                                <li>Every month phone calls from FHN will be made to the respective members to ensure that their mental and physical health is good. Special care will be taken to their hygiene, food, sanitation and general wellbeing.</li>
+                                <li>Reporting to you through emails on their health condition and when necessary make a conference call between you, your family and the treating doctor.</li>
+                                <li>Video conferences through Skype at times of serious health issue between you, your family members and their treating physician will be arranged so that collective & informed decision can be taken.</li>
+                                <li>Home visits of physicians, doctors, nurses on demand will be arranged.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            {#11. Video conferences through Skype at times of serious health issue between you, your family members and their treating physician will be arranged so that collective & informed decision can be taken.#}
-
-            {#12. Home visits of physicians, doctors, nurses on demand will be arranged.#}
         </div>
     </div>
     <div class="col-md-9">
@@ -450,6 +459,49 @@
     </section>
     <!--/#bottom-->
 
+
+
+    <div class="modal fade" id="doctorList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content docContent">
+                <div class="modal-body">
+                    <button type="button" class="close closeBtn closeBtnDoctor" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3>Doctor Lists</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <th>Position</th>
+                            <th>Name</th>
+                            <th>Hospital</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Psychiatric</td>
+                                <td>Dr.Rajesh Dai</td>
+                                <td>Patan Mental Institution</td>
+                            </tr>
+                            <tr>
+                                <td>Psychiatric</td>
+                                <td>Dr.Rajesh Dai</td>
+                                <td>Patan Mental Institution</td>
+                            </tr>
+                            <tr>
+                                <td>Psychiatric</td>
+                                <td>Dr.Rajesh Dai</td>
+                                <td>Patan Mental Institution</td>
+                            </tr>
+                            <tr>
+                                <td>Psychiatric</td>
+                                <td>Dr.Rajesh Dai</td>
+                                <td>Patan Mental Institution</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock content %}

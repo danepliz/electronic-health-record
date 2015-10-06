@@ -766,3 +766,31 @@ button.closeBtn{
 }
 button.closeBtn:hover{opacity: 1}
 .closeBtn span{color: #ffffff; font-size: 18px; padding: 0.5em}
+
+a.docLists{
+    color: #F9C700;
+    font-family: open_sansbold_italic;
+}
+button.closeBtnDoctor{right: 0%; top: 0%}
+.docContent{background: #EFEFEF; border-radius: 0em; box-shadow: none; border: none}
+a.knowMoreBtn{background: #F9C700; color: #ffffff; text-transform: uppercase; font-family: open_sansbold; font-size: 12px; padding: 0.3em 1em; border-radius: 2px}
+
+ol.serviceListPopup{
+    padding-left: 1.5em;
+}
+
+ol.serviceListPopup li{
+    font-size: 12px;
+}
+
+.premiumStatus cite{
+    font-size: 11px;
+}
+
+.frontend-container h2{
+    font-size: 120%;
+    padding: 1em 0;
+    margin: 1em 0;
+    border-bottom: 1px solid #8C8C8C;
+    color: #444;
+}

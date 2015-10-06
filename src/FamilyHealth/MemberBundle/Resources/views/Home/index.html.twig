@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <section>
+    <section class="frontend-container">
         <div class="container">
 
             <h2>{{ member.name }}</h2>
@@ -11,15 +11,18 @@
             <div class="col-md-12">
                 <div class="col-md-3 img-responsive">
                     <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
-                    <br/>
-                    {% if member.isPremiumMember %}
-                        Premium Member - <cite>expires at : {{ member.premiumExpiryDate|date('F j, Y') }}</cite>
-                    {% else %}
-                        Non premium member
-                    {% endif %}
+                    <p class="premiumStatus">
+                        {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
+                    </p>
+
+                    {#{% if member.isPremiumMember %}#}
+                        {#Premium Member - <cite>expires at : {{ member.premiumExpiryDate|date('F j, Y') }}</cite>#}
+                    {#{% else %}#}
+                        {#Non premium member#}
+                    {#{% endif %}#}
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-6">
                     <ul>
                         <li>{{ member.memberId }}</li>
                         <li>{{ member.name }}</li>
@@ -31,20 +34,25 @@
                         <li>{{ member.temporaryAddress }}</li>
                     </ul>
                 </div>
+
+                <div class="col-md-3">
+                    <div class="col-md-12 form-group">
+                        <label>Username: </label>
+                        <p class="form-control">{{ user.username }}</p>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>Password: </label>
+                        <p class="form-control">
+                            ********
+                        </p>
+                        <a href="{{ url('fos_user_change_password') }}"><i class="fa fa-pencil"></i> Change Password</a>
+                    </div>
+
+                </div>
             </div>
 
             <div class="clearfix"></div>
 
-            <fieldset>
-                <legend>User Profile</legend>
-
-                {#{{ dump(member) }}#}
-                <p><label>Name: </label>{{ user.name }}</p>
-                <p><label>Username: </label>{{ user.username }}</p>
-                <p><label>password: </label>********<a href="{{ url('fos_user_change_password') }}"><i class="fa fa-pencil"></i>Change</a></p>
-            </fieldset>
-
-            
 
             <fieldset>
                 <legend>Family Members</legend>
