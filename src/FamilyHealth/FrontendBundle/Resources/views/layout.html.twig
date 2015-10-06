@@ -28,14 +28,40 @@
 <header id="header">
     <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
         <div class="container-fluid">
-            <div class="navbar-brand" href="index.html"><img src="{{ asset('bundles/familyhealthfrontend/images/logo.png') }}" alt="logo" class="img-responsive">
+            <div class="navbar-brand" href="index.html">
+                <img src="{{ asset('bundles/familyhealthfrontend/images/logo.png') }}" alt="logo" class="img-responsive">
             </div>
 
             <div class="medicalHistory">
                 <span><strong>View</strong> Medical History</span>
-                <a href="{{ url('fos_user_security_login') }}">
+                <a href="#" data-toggle="modal" data-target="#loginModal">
                     <span><img src="{{ asset('bundles/familyhealthfrontend/images/loginbtn.png') }}" alt="loginbtn" class="img-responsive"/></span>
                 </a>
+
+                {#<a href="{{ url('fos_user_security_login') }}">#}
+                    {#<span><img src="{{ asset('bundles/familyhealthfrontend/images/loginbtn.png') }}" alt="loginbtn" class="img-responsive"/></span>#}
+                {#</a>#}
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content loganModalContent">
+                            <div class="modal-body">
+                                <div class="loginmodal-container">
+                                    <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h1>Login to Your Account</h1><br>
+                                    <div id="loginFormConent">
+                                        {% render url('fos_user_security_login') %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <nav class="responsive-nav">
                 <div class="navicon">&#9776;<span>Menu</span></div>
@@ -528,6 +554,29 @@
 <script src="{{ asset('bundles/familyhealthfrontend/js/smoothscroll.js') }}"></script>
 <script src="{{ asset('bundles/familyhealthfrontend/js/wow.min.js') }}"></script>
 <script src="{{ asset('bundles/familyhealthfrontend/js/main.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+
+        $(document).on( 'click', '#_submit', function(e){
+            e.preventDefault();
+            var form = $('#loginFormFOS');
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function (data, status, object) {
+                    if(data  && data.success === true ){
+                        window.location  = data.redirectUrl;
+                    }else{
+                        $('.modal-body').find('#loginFormConent').html(data);
+                    }
+
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
