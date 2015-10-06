@@ -1,52 +1,67 @@
-{% extends 'FamilyHealthMemberBundle::layout.html.twig' %}
+{% extends 'FamilyHealthFrontendBundle::layout.html.twig' %}
 
 {% block content %}
-<h3>Member Dashboard</h3>
 
-<h2>{{ member.name }} [ {{ member.memberId  }} ]</h2>
-    <a href="{{ url('fos_user_security_logout') }}">Logout</a>
+    <section>
+        <div class="container">
 
-<fieldset>
-    <legend>User Profile</legend>
+            <h2>{{ member.name }}</h2>
+            {#[ {{ member.memberId  }} ]#}
 
-    {#{{ dump(member) }}#}
-    <p><label>Name: </label>{{ user.name }}</p>
-    <p><label>Username: </label>{{ user.username }}</p>
-    <p><label>password: </label>********<a href="{{ url('fos_user_change_password') }}"><i class="fa fa-pencil"></i>Change</a></p>
-</fieldset>
+            <div class="col-md-12">
+                <div class="col-md-3 img-responsive">
+                    <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
+                    <br/>
+                    {% if member.isPremiumMember %}
+                        Premium Member - <cite>expires at : {{ member.premiumExpiryDate|date('F j, Y') }}</cite>
+                    {% else %}
+                        Non premium member
+                    {% endif %}
+                </div>
 
-<fieldset>
-    <legend>Member Info</legend>
-    <p>
-        <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
-    </p>
-    <p><label>Name: </label>{{ member.name }}</p>
-    <p><label>Age: </label>{{ member.age }}</p>
-    <p><label>Gender: </label>{{ member.gender }}</p>
-    <p><label>Joined Date: </label>{{ member.joinedDate|date('F , Y') }}</p>
-    <p><label>Email: </label>{{ member.email }}</p>
-    <p><label>Phone: </label>{{ member.phone }}</p>
-    <p><label>Mobile: </label>{{ member.mobile }}</p>
-    <p><label>Address: </label>{{ member.address }}</p>
-    <p>
-        {% if member.isPremiumMember %}
-            Premium Member - <cite>expires at : {{ member.premiumExpiryDate|date('F j, Y') }}</cite>
-        {% else %}
-            Non premium member
-        {% endif %}
-    </p>
-</fieldset>
+                <div class="col-md-9">
+                    <ul>
+                        <li>{{ member.memberId }}</li>
+                        <li>{{ member.name }}</li>
+                        <li>{{ member.gender }} {{ member.memberAge }} years</li>
+                        <li>joined at {{ member.joinedDate|date('F , Y') }}</li>
+                        <li>{{ member.email }}</li>
+                        <li>{{ member.mobile }}</li>
+                        <li>{{ member.permanentAddress }}</li>
+                        <li>{{ member.temporaryAddress }}</li>
+                    </ul>
+                </div>
+            </div>
 
-<fieldset>
-    <legend>Family Members</legend>
-    {% if member.relations|length %}
-        {% for relation in member.relations %}
-            {{ loop.index }}#  {{ relation.name }}  {{ relation.relation }}  {{ relation.age }}
-        {% endfor %}
-    {% else %}
-        no relations added
-    {% endif %}
-</fieldset>
+            <div class="clearfix"></div>
+
+            <fieldset>
+                <legend>User Profile</legend>
+
+                {#{{ dump(member) }}#}
+                <p><label>Name: </label>{{ user.name }}</p>
+                <p><label>Username: </label>{{ user.username }}</p>
+                <p><label>password: </label>********<a href="{{ url('fos_user_change_password') }}"><i class="fa fa-pencil"></i>Change</a></p>
+            </fieldset>
+
+            
+
+            <fieldset>
+                <legend>Family Members</legend>
+                {% if member.relations|length %}
+                    {% for relation in member.relations %}
+                        {{ loop.index }}#  {{ relation.name }}  {{ relation.relation }}  {{ relation.age }}
+                    {% endfor %}
+                {% else %}
+                    no relations added
+                {% endif %}
+            </fieldset>
+        </div>
+    </section>
+
+
+
+
 
 
 {% endblock content %}
