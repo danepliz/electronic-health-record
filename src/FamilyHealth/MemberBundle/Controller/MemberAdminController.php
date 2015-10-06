@@ -103,6 +103,8 @@ class MemberAdminController extends Controller
         if( ! $member){ $this->redirect($this->generateUrl('family_health_admin_dashboard')); }
 
         $data['member']= $member;
+        $data['page_title'] = 'Member Detail';
+        $data['page_desc']= $member->getName();
         return $this->render('FamilyHealthMemberBundle:Admin:detail.html.twig', $data);
     }
 

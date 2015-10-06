@@ -6,29 +6,24 @@
 {% block content %}
 
     <div class="col-md-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2 class="heading">{{ member.name }}</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="{{ url('family_health_admin_member_edit', {'id':member.id}) }}" ><i class="fa fa-pencil-square"></i> Edit</a></li>
-                </ul>
-                <div class="clearfix"></div>
+        <div class="box box-default">
+            <div class="box-header">
+                <h2 class="box-title">{{ member.name }} [{{ member.memberId }}]</h2>
+                <div class="box-tools pull-right">
+                    <a href="{{ url('family_health_admin_member_edit', {'id':member.id}) }}" class="btn btn-default" ><i class="fa fa-pencil-square"></i> Edit</a>
+                </div>
             </div>
-            <div class="x_content">
+            <div class="box-body">
                 <div class="col-md-3">
-                    <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
+                    <img class=img-responsive src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
+
+                    <p>
+                        {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
+                    </p>
+                    <p>Joined At: <cite>{{ member.joinedDate.format('F j, Y') }}</cite></p>
                 </div>
 
                 <div class="col-md-9">
-                    <div class="col-md-3">
-                        <label>Member ID</label>
-                        <p>{{ member.memberId }}</p>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label>Member Name</label>
-                        <p>{{ member.name }}</p>
-                    </div>
 
                     <div class="col-md-3">
                         <label>Gender</label>
@@ -37,10 +32,8 @@
 
                     <div class="col-md-3">
                         <label>Age</label>
-                        <p>{{ member.age }}</p>
+                        <p>{{ member.memberAge }}</p>
                     </div>
-
-                    <div class="clearfix"></div>
 
                     <div class="col-md-3">
                         <label>Email</label>
@@ -52,48 +45,35 @@
                         <p>{{ member.mobile }}</p>
                     </div>
 
-                    <div class="col-md-3">
-                        <label>Phone</label>
-                        <p>{{ member.phone }}</p>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label>Joined Date</label>
-                        <p>{{ member.joinedDate.format('F j, Y') }}</p>
-                    </div>
-
                     <div class="clearfix"></div>
 
-                    <div class="col-md-3">
-                        <label>Address</label>
-                        <p>{{ member.address }}</p>
-                    </div>
+                    {% if member.permanentAddress != "" %}
+                        <div class="col-md-12">
+                            <label>Permanent Address</label>
+                            <p>{{ member.permanentAddress }}</p>
+                        </div>
+                    {% endif %}
 
-                    <div class="col-md-3">
-                        <label>Premium Status</label>
-                        <p>
-                            {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
-                        </p>
-                    </div>
-                </div><!-- description -->
-
-
-
+                    {% if member.temporaryAddress != "" %}
+                        <div class="col-md-12">
+                            <label>Temporary Address</label>
+                            <p>{{ member.temporaryAddress }}</p>
+                        </div>
+                    {% endif %}
             </div>
         </div>
     </div>
+    </div>
 
     <div class="col-md-12">
-
-        <div class="x_panel">
-            <div class="x_title">
-                <h2 class="heading">Family Members</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="{{ url('family_health_admin_member_relation_add', {'member':member.id}) }}" ><i class="fa fa-plus-square"></i> Add Members</a></li>
-                </ul>
-                <div class="clearfix"></div>
+        <div class="box box-default">
+            <div class="box-header">
+                <h2 class="box-title">Family Members</h2>
+                <div class="box-tools pull-right">
+                    <a href="{{ url('family_health_admin_member_relation_add', {'member':member.id}) }}" class="btn btn-default" ><i class="fa fa-plus-square"></i> Add Members</a>
+                </div>
             </div>
-            <div class="x_content">
+            <div class="box-body table-responsive">
                 {% if member.relations|length %}
                     <table class="table">
                         <tr>
@@ -119,18 +99,16 @@
                         {% endfor %}
                     </table>
                 {% else %}
-                <div class="alert alert-warning">
-                    No family members added.
-                </div>
+                    <div class="alert alert-warning">
+                        No family members added.
+                    </div>
                 {% endif %}
             </div>
         </div>
-
-
+    </div>
 
 
         {#<a href="#" data-toggle="modal" data-target="#member_relations_add_form">Add Members</a>#}
-    </div>
 
     <div class="modal fade" id="member_relations_add_form" role="dialog" arial-hidden="true">
         <div class="modal-dialog">
