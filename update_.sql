@@ -15,3 +15,5 @@ CREATE TABLE fhn_chronic_diseases (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(
 
 ALTER TABLE fhn_member_families ADD permanent_address_phone VARCHAR(50) DEFAULT NULL;
 ALTER TABLE fhn_member_families ADD relation VARCHAR(100) DEFAULT NULL;
+
+ALTER TABLE fhn_member_families ADD relation VARCHAR(100) DEFAULT NULL, ADD permanent_address_phone VARCHAR(50) DEFAULT NULL;

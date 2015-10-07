@@ -208,11 +208,11 @@ class FamilyMemberType extends AbstractType
                     'O-VE' => 'O -',
                 ]
             ])
-            ->add('file', 'file', [
-                'label' => 'Photo',
-                'required' => FALSE,
-                'attr' => ['class' => 'form-control']
-            ])
+//            ->add('file', 'file', [
+//                'label' => 'Photo',
+//                'required' => FALSE,
+//                'attr' => ['class' => 'form-control']
+//            ])
             ->add('add', 'submit', [
                 'label' => 'SAVE',
                 'attr' => [

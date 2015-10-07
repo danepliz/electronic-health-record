@@ -220,7 +220,7 @@ class Member
      * @Assert\File(
      *      maxSize="2M",
      *      mimeTypes = {"image/jpg", "image/jpeg", "image/gif", "image/png"},
-     *      mimeTypesMessage = "Please upload a valid PDF"
+     *      mimeTypesMessage = "Please upload a valid Image"
      * )
      */
     private $file;
@@ -862,21 +862,22 @@ class Member
         return str_replace('  ', ' ', $name);
     }
 
-    public function getPermanentAddress()
+    public function getPermanentAddress($showPhone = TRUE)
     {
         $address = $this->permanentAddressVDC;
         if( $this->permanentAddressWard != '' ) $address.= '-'.$this->permanentAddressWard;
         $address .= ' '.$this->permanentAddressTole.' '.$this->permanentAddressDistrict;
-        if( $this->permanentAddressPhone != '' ) $address.= ' ('.$this->permanentAddressPhone.')';
+
+        if($showPhone and $this->permanentAddressPhone != '' ) $address.= ' ('.$this->permanentAddressPhone.')';
         return str_replace('  ', '', $address);
     }
 
-    public function getTemporaryAddress()
+    public function getTemporaryAddress($showPhone = TRUE)
     {
         $address = $this->temporaryAddressVDC;
         if( $this->temporaryAddressWard != '' ) $address.= '-'.$this->temporaryAddressWard;
         $address .= ' '.$this->temporaryAddressTole.' '.$this->temporaryAddressDistrict;
-        if( $this->temporaryAddressPhone != '' ) $address.= ' ('.$this->temporaryAddressPhone.')';
+        if($showPhone and $this->temporaryAddressPhone != '' ) $address.= ' ('.$this->temporaryAddressPhone.')';
         return str_replace('  ', '', $address);
     }
 

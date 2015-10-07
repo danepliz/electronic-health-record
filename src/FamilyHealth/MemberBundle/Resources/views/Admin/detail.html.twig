@@ -80,7 +80,9 @@
                             <th>#</th>
                             <th>Relation</th>
                             <th>Name</th>
+                            <th>Age</th>
                             <th>Contact</th>
+                            <th>Address</th>
                             <th>Action</th>
                         </tr>
 
@@ -89,7 +91,9 @@
                                 <td>{{ loop.index }}</td>
                                 <td>{{ relation.relation }}</td>
                                 <td>{{ relation.name }}</td>
+                                <td>{{ relation.memberAge }}</td>
                                 <td>{{ relation.mobile }}</td>
+                                <td>{{ relation.permanentAddress(false) }}</td>
                                 <td>
                                     <a href="{{ url('family_health_admin_member_relation_edit', {'member':member.id,'id':relation.id}) }}">
                                         <i class="fa fa-pencil"></i>

@@ -700,6 +700,37 @@ class FamilyMember
         return str_replace('  ', ' ', $name);
     }
 
+    public function getPermanentAddress($showPhone = TRUE)
+    {
+        $address = $this->permanentAddressVDC;
+        if( $this->permanentAddressWard != '' ) $address.= '-'.$this->permanentAddressWard;
+        $address .= ' '.$this->permanentAddressTole.' '.$this->permanentAddressDistrict;
+        if($showPhone and $this->permanentAddressPhone != '' ) $address.= ' ('.$this->permanentAddressPhone.')';
+        return str_replace('  ', '', $address);
+    }
+
+    public function getTemporaryAddress($showPhone = TRUE)
+    {
+        $address = $this->temporaryAddressVDC;
+        if( $this->temporaryAddressWard != '' ) $address.= '-'.$this->temporaryAddressWard;
+        $address .= ' '.$this->temporaryAddressTole.' '.$this->temporaryAddressDistrict;
+        if($showPhone and $this->temporaryAddressPhone != '' ) $address.= ' ('.$this->temporaryAddressPhone.')';
+        return str_replace('  ', '', $address);
+    }
+
+    public function getMemberAge()
+    {
+        if( $this->dob ){
+            $now = new \DateTime();
+            $diff = $now->diff($this->dob);
+            $return = $diff->y;
+        }else{
+            $return = 'N/A';
+        }
+
+        return $return;
+    }
+
 
     
 

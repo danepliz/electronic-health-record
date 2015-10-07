@@ -4,7 +4,6 @@ namespace FamilyHealth\MemberBundle\Controller;
 
 use FamilyHealth\MemberBundle\Entity\Member;
 use FamilyHealth\MemberBundle\Form\FamilyMemberType;
-use FamilyHealth\MemberBundle\Form\MemberRelationType;
 use FamilyHealth\MemberBundle\Form\MemberType;
 use FamilyHealth\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -125,7 +124,7 @@ class MemberAdminController extends Controller
 
         $relationId = $request->get('id');
         if($relationId){
-            $relation = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:Family',$relationId);
+            $relation = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:FamilyMember',$relationId);
             if(! $relation){
                 return $this->redirect($this->generateUrl('family_health_admin_dashboard'));
             }
