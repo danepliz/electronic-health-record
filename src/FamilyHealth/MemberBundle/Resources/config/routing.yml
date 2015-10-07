@@ -1,3 +1,8 @@
 family_health_member_homepage:
     path:     /
     defaults: { _controller: FamilyHealthMemberBundle:Member:index }
+
+
+family_health_member_update_profile:
+    path:   /profile/update
+    defaults: { _controller: FamilyHealthMemberBundle:Member:updateProfile }

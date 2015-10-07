@@ -787,10 +787,18 @@ ol.serviceListPopup li{
     font-size: 11px;
 }
 
+section.frontend-container{
+    margin: 1em 0 5em 0;
+}
+
 .frontend-container h2{
     font-size: 120%;
     padding: 1em 0;
     margin: 1em 0;
     border-bottom: 1px solid #8C8C8C;
     color: #444;
+}
+
+section.flash-message{
+    margin-top: 1em;
 }

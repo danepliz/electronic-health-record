@@ -20,3 +20,9 @@
     border-color: #F5C14A;
     color: #C57D09 !important;
 }
+
+.alert-success{
+    background: #A3DCA0 !important;
+    border-color: #34BB2D !important;
+    color: #006f0d !important;
+}

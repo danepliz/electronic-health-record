@@ -34,12 +34,14 @@ class MemberAdminController extends Controller
         $member = NULL;
         $id = $request->get('id');
         $data['page_title'] = 'Add Member';
+        $successMessage = 'Member Added Successfully.';
         if( $id ){
             $member = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:Member',$id);
             if( ! $member ){
                 return $this->redirectToRoute('family_health_admin_dashboard');
             }
-            $data['page_title'] = 'Add Member | '. ucwords($member->getName());
+            $data['page_title'] = 'Update Member | '. ucwords($member->getName());
+            $successMessage = 'Member Updated Successfully.';
         }
 
         $memberForm = $this->createForm(new MemberType(), $member);
@@ -82,9 +84,16 @@ class MemberAdminController extends Controller
             }
 
             $em->persist($member);
-            $em->flush();
 
-            return $this->redirectToRoute('family_health_admin_member_list');
+            try{
+                $em->flush();
+
+                $this->addFlash('success', $successMessage);
+                return $this->redirectToRoute('family_health_admin_member_list');
+            }catch (\Exception $e){
+                $this->addFlash('error', 'Something went wrong. '.$e->getMessage());
+            }
+
         }
 
 
@@ -111,6 +120,7 @@ class MemberAdminController extends Controller
     public function addRelationAction(Request $request){
         $memberId = $request->get('member');
         $member = NULL;
+        $successMessage = 'Family Member Added Successfully';
         if( $memberId  ){
             $member = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:Member',$memberId);
 
@@ -128,6 +138,7 @@ class MemberAdminController extends Controller
             if(! $relation){
                 return $this->redirect($this->generateUrl('family_health_admin_dashboard'));
             }
+            $successMessage = 'Family Member Updated Successfully';
         }
 
         $relationForm = $this->createForm(new FamilyMemberType(), $relation);
@@ -140,9 +151,14 @@ class MemberAdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($relation);
 
-            $em->flush();
+            try{
+                $em->flush();
+                $this->addFlash('success', $successMessage);
+                return $this->redirect($this->generateUrl('family_health_admin_member_detail', ['id'=> $member->getId()]));
+            }catch(\Exception $e){
+                $this->addFlash('error', 'Something went wrong. '.$e->getMessage());
+            }
 
-            return $this->redirect($this->generateUrl('family_health_admin_member_detail', ['id'=> $member->getId()]));
         }
 
 
