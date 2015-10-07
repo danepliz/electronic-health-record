@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new FamilyHealth\InstitutionBundle\FamilyHealthInstitutionBundle(),
             new FamilyHealth\MedicalBundle\FamilyHealthMedicalBundle(),
+            new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

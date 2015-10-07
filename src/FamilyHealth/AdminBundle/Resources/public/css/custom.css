@@ -8,11 +8,13 @@
 }
 
 .box.box-default{
-    border-top: 1px solid #DADADA !important;
+    border: 1px solid #EFEFEF !important;
+    border-radius: 0px !important;
 }
 
 .box-header{
     background: #EFEFEF !important;
+    border: 1px #FFF solid;
 }
 
 .bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
@@ -25,4 +27,8 @@
     background: #A3DCA0 !important;
     border-color: #34BB2D !important;
     color: #006f0d !important;
+}
+
+.box-tools .btn{
+    margin-top: -2px;
 }

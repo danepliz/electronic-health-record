@@ -1,3 +1,3 @@
-family_health_institution_homepage:
-    path:     /hello/{name}
+family_health_admin_institution_list:
+    path:     /
     defaults: { _controller: FamilyHealthInstitutionBundle:Default:index }

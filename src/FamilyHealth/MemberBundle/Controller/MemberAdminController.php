@@ -154,7 +154,7 @@ class MemberAdminController extends Controller
             try{
                 $em->flush();
                 $this->addFlash('success', $successMessage);
-                return $this->redirect($this->generateUrl('family_health_admin_member_detail', ['id'=> $member->getId()]));
+                return $this->redirectToRoute('family_health_admin_member_detail', ['id'=> $member->getId()]);
             }catch(\Exception $e){
                 $this->addFlash('error', 'Something went wrong. '.$e->getMessage());
             }

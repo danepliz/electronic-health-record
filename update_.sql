@@ -1,19 +1,6 @@
-CREATE TABLE fhn_member_families (id INT AUTO_INCREMENT NOT NULL, member_id INT DEFAULT NULL, first_name VARCHAR(255) NOT NULL, middle_name VARCHAR(255) DEFAULT NULL, last_name VARCHAR(255) NOT NULL, birth_date DATE DEFAULT NULL, gender VARCHAR(10) DEFAULT NULL, mobile VARCHAR(50) DEFAULT NULL, email VARCHAR(100) DEFAULT NULL, blood_group VARCHAR(10) DEFAULT NULL, permanent_address_house_number VARCHAR(10) DEFAULT NULL, permanent_address_tole VARCHAR(100) DEFAULT NULL, permanent_address_ward VARCHAR(100) DEFAULT NULL, permanent_address_vdc VARCHAR(100) DEFAULT NULL, permanent_address_district VARCHAR(100) DEFAULT NULL, temporary_address_house_number VARCHAR(10) DEFAULT NULL, temporary_address_tole VARCHAR(100) DEFAULT NULL, temporary_address_ward VARCHAR(100) DEFAULT NULL, temporary_address_vdc VARCHAR(100) DEFAULT NULL, temporary_address_district VARCHAR(100) DEFAULT NULL, temporary_address_phone VARCHAR(100) DEFAULT NULL, path VARCHAR(255) DEFAULT NULL, INDEX IDX_11E1A11B7597D3FE (member_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-ALTER TABLE fhn_member_families ADD CONSTRAINT FK_11E1A11B7597D3FE FOREIGN KEY (member_id) REFERENCES fhn_members (id);
-ALTER TABLE fhn_members DROP FOREIGN KEY FK_D1BD1FCE727ACA70;
-DROP INDEX IDX_D1BD1FCE727ACA70 ON fhn_members;
-ALTER TABLE fhn_members ADD middle_name VARCHAR(255) DEFAULT NULL, ADD last_name VARCHAR(255) NOT NULL, ADD permanent_address_house_number VARCHAR(10) DEFAULT NULL, ADD permanent_address_tole VARCHAR(100) DEFAULT NULL, ADD permanent_address_ward VARCHAR(100) DEFAULT NULL, ADD permanent_address_vdc VARCHAR(100) DEFAULT NULL, ADD permanent_address_district VARCHAR(100) DEFAULT NULL, ADD temporary_address_house_number VARCHAR(10) DEFAULT NULL, ADD temporary_address_tole VARCHAR(100) DEFAULT NULL, ADD temporary_address_ward VARCHAR(100) DEFAULT NULL, ADD temporary_address_vdc VARCHAR(100) DEFAULT NULL, ADD temporary_address_district VARCHAR(100) DEFAULT NULL, ADD temporary_address_phone VARCHAR(100) DEFAULT NULL, DROP parent_id, DROP phone, DROP address, DROP relation, CHANGE name first_name VARCHAR(255) NOT NULL;
-CREATE TABLE ys_medicines (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-CREATE TABLE ys_allergies (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, precautions LONGTEXT NOT NULL, probableAreas LONGTEXT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-CREATE TABLE ys_chronic_diseases (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-ALTER TABLE fhn_members ADD permanent_address_phone VARCHAR(50) DEFAULT NULL;
+ALTER TABLE fhn_institutions CHANGE phone phone VARCHAR(255) DEFAULT NULL, CHANGE email email VARCHAR(255) DEFAULT NULL;
+ALTER TABLE fhn_institutions CHANGE address address LONGTEXT DEFAULT NULL;
 
-CREATE TABLE fhn_institutions (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, createdDate DATETIME NOT NULL, address LONGTEXT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-CREATE TABLE fhn_medicines (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-CREATE TABLE fhn_allergies (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, precautions LONGTEXT NOT NULL, probableAreas LONGTEXT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-CREATE TABLE fhn_chronic_diseases (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
-
-ALTER TABLE fhn_member_families ADD permanent_address_phone VARCHAR(50) DEFAULT NULL;
-ALTER TABLE fhn_member_families ADD relation VARCHAR(100) DEFAULT NULL;
-
-ALTER TABLE fhn_member_families ADD relation VARCHAR(100) DEFAULT NULL, ADD permanent_address_phone VARCHAR(50) DEFAULT NULL;
+ALTER TABLE fhn_members ADD institution_id INT DEFAULT NULL, ADD share_identification_number VARCHAR(255) DEFAULT NULL;
+ALTER TABLE fhn_members ADD CONSTRAINT FK_D1BD1FCE10405986 FOREIGN KEY (institution_id) REFERENCES fhn_institutions (id);
+CREATE INDEX IDX_D1BD1FCE10405986 ON fhn_members (institution_id);

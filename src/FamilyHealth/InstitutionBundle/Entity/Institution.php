@@ -3,6 +3,7 @@
 namespace FamilyHealth\InstitutionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Institution
@@ -30,7 +31,7 @@ class Institution
 
     /**
      * @var string
-     *
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
@@ -38,20 +39,20 @@ class Institution
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var \DateTime
-     *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="createdDate", type="datetime")
      */
     private $createdDate;
@@ -59,7 +60,7 @@ class Institution
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="text")
+     * @ORM\Column(name="address", type="text", nullable=true)
      */
     private $address;
 
@@ -68,7 +69,11 @@ class Institution
      *
      * @ORM\Column(name="status", type="boolean")
      */
-    private $status;
+    private $status = TRUE;
+
+//    public function __construct(){
+//        $this->createdDate = new \DateTime();
+//    }
 
 
     /**

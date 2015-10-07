@@ -225,6 +225,16 @@ class Member
      */
     private $file;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $shareIdentificationNumber;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FamilyHealth\InstitutionBundle\Entity\Institution")
+     */
+    public $institution;
+
 
     public function __construct()
     {
@@ -821,6 +831,30 @@ class Member
     public function getTemporaryAddressWard()
     {
         return $this->temporaryAddressWard;
+    }
+
+    public function setInstitution($institution)
+    {
+        $this->institution = $institution;
+
+        return $this;
+    }
+
+    public function getInstitution()
+    {
+        return $this->institution;
+    }
+
+    public function setShareIdentificationNumber($shareIdentificationNumber)
+    {
+        $this->shareIdentificationNumber = $shareIdentificationNumber;
+
+        return $this;
+    }
+
+    public function getShareIdentificationNumber()
+    {
+        return $this->shareIdentificationNumber;
     }
 
     public function addRelation($relation)

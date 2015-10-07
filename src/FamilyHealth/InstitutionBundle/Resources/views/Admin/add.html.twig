@@ -1,0 +1,63 @@
+{% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
+
+{% block content %}
+
+    {{ form_start(form, { 'attr': { 'class':'form-horizontal' } }) }}
+
+    <div class="col-md-12">
+        <div class="box box-default">
+            <div class="box-header">
+                <h2 class="box-title">Institution Information</h2>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.name) }}</label>
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.phone) }}</label>
+                        {{ form_widget(form.phone) }}
+                        {{ form_errors(form.phone) }}
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.email) }}</label>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="">{{ form_label(form.address) }}</label>
+                        {{ form_widget(form.address) }}
+                        {{ form_errors(form.address) }}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-12">
+                    {{ form_widget(form.add) }}
+                </div>
+
+
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

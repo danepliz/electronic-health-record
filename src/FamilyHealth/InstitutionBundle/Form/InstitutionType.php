@@ -4,7 +4,7 @@ namespace FamilyHealth\InstitutionBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class InstitutionType extends AbstractType
 {
@@ -15,20 +15,45 @@ class InstitutionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('slug')
-            ->add('phone')
-            ->add('email')
-            ->add('createdDate')
-            ->add('address')
-            ->add('status')
+            ->add('name','text',[
+                'label' => 'Name Of Institution',
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('phone','text',[
+                'label' => 'Phone',
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('email','email',[
+                'label' => 'Email',
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+//            ->add('createdDate')
+            ->add('address','textarea',[
+                'label' => 'Address',
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+//            ->add('status')
+            ->add('add','submit',[
+                'attr'=> ['class' => 'btn btn-primary']
+            ])
         ;
     }
     
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'FamilyHealth\InstitutionBundle\Entity\Institution'

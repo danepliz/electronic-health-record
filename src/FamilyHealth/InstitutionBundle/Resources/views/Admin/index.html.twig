@@ -1,114 +1,54 @@
 {% extends 'FamilyHealthAdminBundle::layout.html.twig' %}
-{% block title %}
-    Institution
-{% endblock %}
+
 
 {% block content %}
+    <div class="col-md-12">
 
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">List</h3>
+                <div class="box-tools pull-right">
+                    <a href="{{ url('family_health_admin_institution_add') }}" class="btn btn-default"><i class="fa fa-plus"></i> &nbsp; Add Institution</a>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    {% if institutions|length %}
 
-
-
-    {#<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">#}
-        {#<div class="x_panel">#}
-            {#<div class="x_title">#}
-                {#<h2>Filter</h2>#}
-                {#<div class="clearfix"></div>#}
-            {#</div>#}
-
-            {#<div class="x_content">#}
-                {#<form method="get" action="" role="form" name="member-filter-form">#}
-                    {#<div class="form-group-sm col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label for="name">Name</label>#}
-                        {#<input class="form-control" type="text" name="name" value="{{ app.request.get('name') }}"/>#}
-                    {#</div>#}
-                    {#<div class="form-group-sm col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label for="gender">Gender</label>#}
-                        {#<select class="form-control" name="gender" id="gender">#}
-                            {#{% for i,v in {'':' -- ALL -- ', 'MALE':'MALE', 'FEMALE':'FEMALE', 'OTHERS':'OTHERS' } %}#}
-                                {#{% set genderSelected =  app.request.get('gender') == i ? 'selected="selected"' : '' %}#}
-                                {#<option value="{{ i }}" {{ genderSelected }}> {{ v }} </option>#}
-                            {#{% endfor %}#}
-                        {#</select>#}
-                    {#</div>#}
-                    {#<div class="form-group-sm col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label for="age_min">Min Age</label>#}
-                        {#<input class="form-control" type="text" name="age_min" value="{{ app.request.get('age_min') }}"/>#}
-                    {#</div>#}
-                    {#<div class="form-group-sm col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label for="age_max">Max Age</label>#}
-                        {#<input class="form-control" type="text" name="age_max"  value="{{ app.request.get('age_max') }}"/>#}
-                    {#</div>#}
-                    {#<div class="form-group-sm col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label for="status">Status</label>#}
-                        {#<select class="form-control" name="status" id="status">#}
-                            {#{% for i,v in {'':' -- ALL -- ','PREMIUM':'PREMIUM', 'NON-PREMIUM':'NON-PREMIUM'} %}#}
-                                {#{% set statusSelected = app.request.get('status') == i ? 'selected="selected"' : '' %}#}
-                                {#<option value="{{ i }}" {{ statusSelected }}> {{ v }} </option>#}
-                            {#{% endfor %}#}
-                        {#</select>#}
-                    {#</div>#}
-                    {#<div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">#}
-                        {#<label>&nbsp;</label>#}
-                        {#<input class="form-group" type="submit" value="FILTER"/>#}
-                    {#</div>#}
-                {#</form>#}
-            {#</div>#}
-
-        {#</div>#}
-    {#</div>#}
-
-    {#<div class="clearfix"></div>#}
-
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Institution List</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="{{ url('family_health_admin_institution_add') }}" class="btn btn-default"><i class="fa fa-plus"></i> &nbsp; Add Institution</a></li>
-                    {#<li><a href="{{ url('family_health_admin_member_import_xls') }}" class="btn btn-default"><i class="fa fa-file-excel-o"></i> &nbsp; Import Excel</a></li>#}
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="x_content">
-                {% if institutions|length %}
-                    <table class="table">
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Status</th>
-                            <th><i class="fa fa-cog"></i></th>
-                        </tr>
-                        {% for institution in institutions %}
-
+                        <table class="table">
                             <tr>
-                                <td>{{ loop.index }}</td>
-                                <td>{{ institution.name }}</td>
-                                <td>{{ institution.phone }}</td>
-                                <td>{{ institution.email }}</td>
-                                <td>{{ institution.address }}</td>
-                                <td>{{ institution.status }}</td>
-                                <td>
-                                    {#<a href="{{ url('family_health_admin_member_detail',{'id':member.id}) }}" title="view"><i class="fa fa-external-link"></i></a>#}
-                                    {#<a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="edit"><i class="fa fa-pencil"></i></a>#}
-                                    {#<a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="delete"><i class="fa fa-trash"></i></a>#}
-                                    {#<a href="{{ url('family_health_admin_member_edit',{'id':member.id}) }}" title="renew"><i class="fa fa-wrench"></i></a>#}
-                                </td>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th><i class="fa fa-cog"></i></th>
                             </tr>
-                        {% endfor %}
-                    </table>
-                {% else %}
-                    <div class="alert alert-warning">
-                        No Institutions to list
-                    </div>
-                {% endif %}
-            </div>
+                            {% for institute in institutions %}
+
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ institute.name }}</td>
+                                    <td>{{ institute.phone }}</td>
+                                    <td>{{ institute.email }}</td>
+                                    <td>{{ institute.address }}</td>
+                                    <td>
+                                        <a href="{{ url('family_health_admin_institution_edit',{'id':institute.id}) }}" title="view"><i class="fa fa-pencil"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            No Institutions to list
+                        </div>
+                    {% endif %}
+                </div><!-- /.table-responsive -->
+            </div><!-- /.box-body -->
         </div>
     </div>
 
 
-{% endblock %}
 
+
+{% endblock %}

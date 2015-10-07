@@ -53,3 +53,7 @@ family_health_admin_institution_list:
 family_health_admin_institution_add:
     path:   /institution/add
     defaults: { _controller: FamilyHealthInstitutionBundle:InstitutionAdmin:add }
+
+family_health_admin_institution_edit:
+    path:   /institution/{id}/update
+    defaults: { _controller: FamilyHealthInstitutionBundle:InstitutionAdmin:add }
