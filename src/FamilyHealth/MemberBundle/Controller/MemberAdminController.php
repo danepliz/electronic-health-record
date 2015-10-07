@@ -3,6 +3,7 @@
 namespace FamilyHealth\MemberBundle\Controller;
 
 use FamilyHealth\MemberBundle\Entity\Member;
+use FamilyHealth\MemberBundle\Form\FamilyMemberType;
 use FamilyHealth\MemberBundle\Form\MemberRelationType;
 use FamilyHealth\MemberBundle\Form\MemberType;
 use FamilyHealth\UserBundle\Entity\User;
@@ -124,19 +125,19 @@ class MemberAdminController extends Controller
 
         $relationId = $request->get('id');
         if($relationId){
-            $relation = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:Member',$relationId);
+            $relation = $this->getDoctrine()->getManager()->find('FamilyHealthMemberBundle:Family',$relationId);
             if(! $relation){
                 return $this->redirect($this->generateUrl('family_health_admin_dashboard'));
             }
         }
 
-        $relationForm = $this->createForm(new MemberRelationType(), $relation);
+        $relationForm = $this->createForm(new FamilyMemberType(), $relation);
 
         $relationForm->handleRequest($request);
 
         if ($relationForm->isValid()) {
             $relation = $relationForm->getData();
-            $relation->setParent($member);
+            $relation->setMember($member);
             $em = $this->getDoctrine()->getManager();
             $em->persist($relation);
 
@@ -147,8 +148,10 @@ class MemberAdminController extends Controller
 
 
         $data['form'] = $relationForm->createView();
+        $data['family'] = $relation;
         $data['member']= $member;
-        $data['page_title'] = 'Member | Add';
+        $data['page_title'] = 'Family Member | ';
+        $data['page_desc'] = $member->getName();
         return $this->render('FamilyHealthMemberBundle:Admin:add_member.html.twig', $data);
     }
 

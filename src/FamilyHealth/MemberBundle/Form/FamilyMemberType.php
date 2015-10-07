@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MemberType extends AbstractType
+class FamilyMemberType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -80,55 +80,63 @@ class MemberType extends AbstractType
                     ],
                     'required'=> true
                 ])
+            ->add('relation','text',
+                [
+                    'attr' => [
+                        'class' => 'form-control',
+                        'placeholder' => 'relation'
+                    ],
+                    'required'=> true
+                ])
 
-            ->add('temporaryAddressHouseNumber','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'house no'
-                    ],
-                    'required'=> false
-                ])
-            ->add('temporaryAddressTole','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'tole'
-                    ],
-                    'required'=> false
-                ])
-            ->add('temporaryAddressWard','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'ward'
-                    ],
-                    'required'=> false
-                ])
-            ->add('temporaryAddressVDC','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'mp/vdc'
-                    ],
-                    'required'=> false
-                ])
-            ->add('temporaryAddressDistrict','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'district'
-                    ],
-                    'required'=> false
-                ])
-            ->add('temporaryAddressPhone','text',
-                [
-                    'attr' => [
-                        'class' => 'form-control',
-                        'placeholder' => 'phone'
-                    ],
-                    'required'=> false
-                ])
+//            ->add('temporaryAddressHouseNumber','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'house no'
+//                    ],
+//                    'required'=> false
+//                ])
+//            ->add('temporaryAddressTole','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'tole'
+//                    ],
+//                    'required'=> false
+//                ])
+//            ->add('temporaryAddressWard','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'ward'
+//                    ],
+//                    'required'=> false
+//                ])
+//            ->add('temporaryAddressVDC','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'mp/vdc'
+//                    ],
+//                    'required'=> false
+//                ])
+//            ->add('temporaryAddressDistrict','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'district'
+//                    ],
+//                    'required'=> false
+//                ])
+//            ->add('temporaryAddressPhone','text',
+//                [
+//                    'attr' => [
+//                        'class' => 'form-control',
+//                        'placeholder' => 'phone'
+//                    ],
+//                    'required'=> false
+//                ])
             ->add('permanentAddressPhone', 'text',
                 [
                     'attr' => [
@@ -168,9 +176,10 @@ class MemberType extends AbstractType
                     'required' => FALSE,
                     'label'=> 'Birth Date',
                     'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
+//                    'format' => 'yyyy-MM-dd',
                     'attr' => [
-                        'class' => 'form-control',
+                        'class' => 'form-control datepicker',
+                        'id' => 'dobPicker',
                         'data-provide' => 'datepicker',
                         'data-date-format'=> 'yyyy-mm-dd',
                         'placeholder' => 'date of birth'
@@ -184,16 +193,6 @@ class MemberType extends AbstractType
                     'OTHERS' => 'Others'
                 ]
             ])
-
-
-            ->add('hasSurgery', 'choice', [
-                'attr' => ['class' => 'form-control'],
-                'choices' => [
-                    '0' => 'NO',
-                    '1' => 'YES'
-                ]
-            ])
-//            ->add('memberId')
             ->add('bloodGroup','choice', [
                 'required' => FALSE,
                 'attr' => ['class' => 'form-control'],
@@ -214,47 +213,13 @@ class MemberType extends AbstractType
                 'required' => FALSE,
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('joinedDate', 'date',
-                [
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                    'attr' => [
-                        'class' => 'form-control input-inline datepicker',
-                        'data-provide' => 'datepicker',
-                        'data-date-format'=> 'yyyy-mm-dd'
-                    ]
-                ]
-            )
-//            ->add('isPremiumMember', 'choice',[
-//                'label' => 'Is Premium',
-//                'attr' => [ 'class'=>'form-control' ],
-//                'choices' => [
-//                    '0' => 'NO',
-//                    '1' => 'YES'
-//                ]
-//            ])
-            ->add('premiumExpiryDate', 'date',
-                [
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                    'label' => 'Premium Expiry Date',
-                    'required' => FALSE,
-                    'attr' => ['class' => 'form-control input-inline datepicker',
-                        'data-provide' => 'datepicker',
-                        'data-date-format'=> 'yyyy-mm-dd',]
-                ]
-            )
             ->add('add', 'submit', [
                 'label' => 'SAVE',
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]
             ])
-//            ->add('cancel', 'button', [
-//                'attr' => [
-//                    'class' => 'btn btn-primary'
-//                ]
-//            ])
+//            ->add('member')
         ;
     }
     
@@ -264,7 +229,7 @@ class MemberType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FamilyHealth\MemberBundle\Entity\Member'
+            'data_class' => 'FamilyHealth\MemberBundle\Entity\FamilyMember'
         ));
     }
 
@@ -273,6 +238,6 @@ class MemberType extends AbstractType
      */
     public function getName()
     {
-        return 'familyhealth_memberbundle_member';
+        return 'familyhealth_memberbundle_familymember';
     }
 }

@@ -10,7 +10,7 @@
 
             <div class="col-md-12">
                 <div class="col-md-3 img-responsive">
-                    <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}"/>
+                    <img src="{{ asset('uploads/members/') }}{{ member.path }}" alt="{{ member.name }}" width="100%"/>
                     <p class="premiumStatus">
                         {{ premium_admin_status(member.isPremiumMember, member.premiumExpiryDate)|raw }}
                     </p>

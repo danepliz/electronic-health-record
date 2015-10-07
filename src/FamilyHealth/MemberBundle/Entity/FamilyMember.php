@@ -80,6 +80,13 @@ class FamilyMember
     /**
      * @var string
      *
+     * @ORM\Column(name="relation", type="string", length=100, nullable=true)
+     */
+    private $relation;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="blood_group", type="string", length=10, nullable=true)
      */
     private $bloodGroup;
@@ -123,6 +130,13 @@ class FamilyMember
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $permanentAddressDistrict;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $permanentAddressPhone;
 
     /**
      * @var string
@@ -541,6 +555,24 @@ class FamilyMember
     }
 
     /**
+     * @param string $permanentAddressPhone
+     */
+    public function setPermanentAddressPhone($permanentAddressPhone)
+    {
+        $this->permanentAddressPhone = $permanentAddressPhone;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPermanentAddressPhone()
+    {
+        return $this->permanentAddressPhone;
+    }
+
+    /**
      * @param string $temporaryAddressDistrict
      */
     public function setTemporaryAddressDistrict($temporaryAddressDistrict)
@@ -639,6 +671,19 @@ class FamilyMember
 
         return $this;
     }
+
+    public function getRelation()
+    {
+        return $this->relation;
+    }
+
+    public function setRelation($relation)
+    {
+        $this->relation = $relation;
+
+        return $this;
+    }
+
 
     /**
      * @return string
